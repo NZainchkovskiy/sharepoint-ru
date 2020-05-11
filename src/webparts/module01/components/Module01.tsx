@@ -4,9 +4,9 @@ import { IModule01Props } from "./IModule01Props";
 import { escape } from "@microsoft/sp-lodash-subset";
 import { Label, ILabelStyles } from "office-ui-fabric-react/lib/Label";
 import { Pivot, PivotItem } from "office-ui-fabric-react/lib/Pivot";
-import { Page1 } from "./Page1";
-import { Page2 } from "./Page2";
-import { Page3 } from "./Page3";
+import { Page1 } from "../../../shared/components/Page1";
+import { Page2 } from "../../../shared/components/Page2";
+import { Page3 } from "../../../shared/components/Page3";
 
 const Module01: React.FC<IModule01Props> = (props) => {
   return (

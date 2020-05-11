@@ -1,14 +1,14 @@
 import * as React from "react";
-import { Label } from "office-ui-fabric-react/lib/Label";
-import { getList1Items } from "../services/data-service";
+import { getListItems } from "../services/data-service";
+import { IListItem } from "../model/IListItem";
 
 interface IPage1Props {}
 
 export const Page1: React.FC<IPage1Props> = (props) => {
-  const [items, setItems] = React.useState<string[]>([]);
+  const [items, setItems] = React.useState<IListItem[]>([]);
   React.useEffect(() => {
     const fetchItems = async () => {
-      const fetchedItems = await getList1Items();
+      const fetchedItems = await getListItems("List1");
       setItems(fetchedItems);
     };
     fetchItems();
@@ -17,7 +17,7 @@ export const Page1: React.FC<IPage1Props> = (props) => {
     <>
       <ul>
         {items.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item.ID}>{item.Title}</li>
         ))}
       </ul>
     </>
