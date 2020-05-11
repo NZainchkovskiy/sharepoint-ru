@@ -15,6 +15,7 @@ import { sp } from "@pnp/sp/presets/all";
 import * as strings from "Module02WebPartStrings";
 import Module02 from "./components/Module02";
 import { IModule02Props } from "./components/IModule02Props";
+import { proxyUrl, webRelativeUrl } from "../../shared/constants";
 
 export interface IModule02WebPartProps {
   description: string;
@@ -35,7 +36,15 @@ export default class Module02WebPart extends BaseClientSideWebPart<
   }
 
   protected onInit(): Promise<void> {
-    sp.setup({ spfxContext: this.context });
+    if (Environment.type === EnvironmentType.Local) {
+      sp.setup({
+        sp: {
+          baseUrl: `${proxyUrl}${webRelativeUrl}`,
+        },
+      });
+    } else {
+      sp.setup({ spfxContext: this.context });
+    }
     return super.onInit();
   }
 

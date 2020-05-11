@@ -1,25 +1,35 @@
-import * as React from 'react';
-import styles from './Module02.module.scss';
-import { IModule02Props } from './IModule02Props';
-import { escape } from '@microsoft/sp-lodash-subset';
+import * as React from "react";
+import styles from "./Module02.module.scss";
+import { IModule02Props } from "./IModule02Props";
+import {
+  Pivot,
+  PivotItem,
+  PivotLinkFormat,
+} from "office-ui-fabric-react/lib/Pivot";
+import { Page1 } from "../../../shared/components/Page1";
+import { Page2 } from "../../../shared/components/Page2";
+import { Page3 } from "../../../shared/components/Page3";
 
-export default class Module02 extends React.Component<IModule02Props, {}> {
-  public render(): React.ReactElement<IModule02Props> {
-    return (
-      <div className={ styles.module02 }>
-        <div className={ styles.container }>
-          <div className={ styles.row }>
-            <div className={ styles.column }>
-              <span className={ styles.title }>Welcome to SharePoint!</span>
-              <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
-              <p className={ styles.description }>{escape(this.props.description)}</p>
-              <a href="https://aka.ms/spfx" className={ styles.button }>
-                <span className={ styles.label }>Learn more</span>
-              </a>
-            </div>
-          </div>
-        </div>
+const Module02: React.FC<IModule02Props> = (props) => {
+  return (
+    <div className={styles.module02}>
+      <div className={styles.container}>
+        <Pivot
+          aria-label="Basic Pivot Example"
+          linkFormat={PivotLinkFormat.tabs}
+        >
+          <PivotItem headerText="Page 1">
+            <Page1 />
+          </PivotItem>
+          <PivotItem headerText="Page 2">
+            <Page2 />
+          </PivotItem>
+          <PivotItem headerText="Page 3">
+            <Page3 />
+          </PivotItem>
+        </Pivot>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+export default Module02;

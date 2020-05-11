@@ -9,6 +9,8 @@
   "scripts": {
     "build": "gulp bundle",
     "clean": "gulp clean",
+    "proxy": "node ./proxy",
+    "serve": "concurrently --kill-others \"npm run proxy\" \"gulp serve\"",
     "test": "gulp test"
   },
   "dependencies": {

@@ -1,8 +1,6 @@
 import * as React from "react";
 import styles from "./Module01.module.scss";
 import { IModule01Props } from "./IModule01Props";
-import { escape } from "@microsoft/sp-lodash-subset";
-import { Label, ILabelStyles } from "office-ui-fabric-react/lib/Label";
 import { Pivot, PivotItem } from "office-ui-fabric-react/lib/Pivot";
 import { Page1 } from "../../../shared/components/Page1";
 import { Page2 } from "../../../shared/components/Page2";
