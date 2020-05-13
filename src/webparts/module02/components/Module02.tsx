@@ -9,6 +9,7 @@ import {
 import { Page1 } from "../../../shared/components/Page1";
 import { Page2 } from "../../../shared/components/Page2";
 import { Page3 } from "../../../shared/components/Page3";
+import { IListItem } from "../../../shared/model/IListItem";
 
 const Module02: React.FC<IModule02Props> = (props) => {
   return (

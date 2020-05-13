@@ -7,8 +7,9 @@ import useSWR from "swr";
 interface IPage2Props {}
 
 export const Page2: React.FC<IPage2Props> = (props) => {
-  const { data } = useSWR("List2", getListItems);
+  const { data } = useSWR("List2", getListItems, { refreshInterval: 1000 });
   const items = data || [];
+
   return (
     <>
       <ul>
