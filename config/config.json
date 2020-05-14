@@ -17,11 +17,20 @@
           "manifest": "./src/webparts/module02/Module02WebPart.manifest.json"
         }
       ]
+    },
+    "module-03-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/module03/Module03WebPart.js",
+          "manifest": "./src/webparts/module03/Module03WebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "Module01WebPartStrings": "lib/webparts/module01/loc/{locale}.js",
-    "Module02WebPartStrings": "lib/webparts/module02/loc/{locale}.js"
+    "Module02WebPartStrings": "lib/webparts/module02/loc/{locale}.js",
+    "Module03WebPartStrings": "lib/webparts/module03/loc/{locale}.js"
   }
 }
