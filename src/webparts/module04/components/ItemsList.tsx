@@ -1,5 +1,5 @@
 import * as React from "react";
-import { memo, useState, useCallback } from "react";
+import { memo, useState } from "react";
 import { Item } from "./Item";
 import styled from "styled-components";
 import { AnimateSharedLayout, motion } from "framer-motion";
@@ -24,7 +24,7 @@ const container = {
     transition: {
       delayChildren: 0.5,
       staggerChildren: 0.1,
-      staggerDirection: -1,
+      staggerDirection: 1,
     },
   },
   exit: { opacity: 0 },

@@ -30,7 +30,13 @@ const Outline = styled(motion.div)`
 `;
 
 const item = {
-  enter: { opacity: 1, x: 0 },
+  enter: {
+    opacity: 1,
+    x: 0,
+    scale: [1, 0.5, 1, 1],
+    rotate: [0, 0, 270, 0],
+    borderRadius: ["20%", "20%", "50%", "50%"],
+  },
   exit: { opacity: 0, x: -200 },
 };
 

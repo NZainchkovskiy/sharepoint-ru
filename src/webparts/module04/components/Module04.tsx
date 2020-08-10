@@ -9,6 +9,14 @@ import { ItemsList } from "./ItemsList";
 import { ColorPicker } from "office-ui-fabric-react/lib/ColorPicker";
 
 const white = getColorFromString("#ffffff")!;
+const defaultColors = [
+  "#ff0055",
+  "#0099ff",
+  "#22cc88",
+  "blue",
+  "green",
+  "brown",
+];
 
 const Module04: React.FC<IModule04Props> = (props) => {
   const [colors, setColors] = useState(defaultColors);
@@ -55,12 +63,3 @@ const Module04: React.FC<IModule04Props> = (props) => {
 };
 
 export default Module04;
-
-const defaultColors = [
-  "#ff0055",
-  "#0099ff",
-  "#22cc88",
-  "blue",
-  "green",
-  "brown",
-];
