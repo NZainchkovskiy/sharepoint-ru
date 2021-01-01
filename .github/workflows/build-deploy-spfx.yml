@@ -1,0 +1,58 @@
+name: SPFx CI/CD with O365 CLI
+
+on: [push]
+
+env:
+  SolutionFolder: ./solution
+  SolutionPackagePath: solution/sharepoint/solution/sharepoint-ru.sppkg  
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v1
+      
+    - name: Use Node.js 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.x
+    
+    - name: Run npm ci
+      run: npm ci
+      working-directory: ${{ env.SolutionFolder }}
+    
+    - name: Run npm i -g gulp
+      run: npm i -g gulp
+      working-directory: ${{ env.SolutionFolder }}
+    
+    - name: Bundle and package
+      run: |
+        gulp bundle --ship
+        gulp package-solution --ship
+      working-directory: ${{ env.SolutionFolder }}
+      
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - name: Login to tenant
+      uses: pnp/action-cli-login@v1.0.0
+      with:
+        ADMIN_USERNAME:  ${{ secrets.ADMIN_USERNAME }}
+        ADMIN_PASSWORD:  ${{ secrets.ADMIN_PASSWORD }}
+
+    - name: Deploy app to tenant app catalog
+      id: o365clideploy
+      uses: pnp/action-cli-deploy@v1.0.0
+      with:
+        APP_FILE_PATH: ${{ env.SolutionPackagePath }}
+        SKIP_FEATURE_DEPLOYMENT: false
+        OVERWRITE: true
+
+    - name: Get the id of the app deployed
+      run: echo "The id of the app deployed is ${{ steps.o365clideploy.outputs.APP_ID }}"
