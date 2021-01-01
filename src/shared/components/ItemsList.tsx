@@ -15,7 +15,7 @@ interface IItemsListProps {
 }
 
 export const ItemsList: React.FC<IItemsListProps> = (props) => {
-  const { items } = props;
+  const { items, selectedItem } = props;
   const columns: IColumn[] = React.useMemo(
     () =>
       buildColumns(items).filter(
@@ -27,12 +27,11 @@ export const ItemsList: React.FC<IItemsListProps> = (props) => {
   const selection = new Selection({
     onSelectionChanged: () => {
       if (props.onItemSelected) {
-        const selectedItem = selection.getSelection()[0] as IListItem;
-        props.onItemSelected(selectedItem);
+        const item = selection.getSelection()[0] as IListItem;
+        props.onItemSelected(item);
       }
     },
   });
-  const { selectedItem } = props;
   React.useEffect(
     () => selection.setItems(selectedItem ? [{ key: selectedItem.ID }] : []),
     [selectedItem]
