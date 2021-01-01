@@ -3,8 +3,7 @@ name: SPFx CI/CD with O365 CLI
 on: [push]
 
 env:
-  SolutionFolder: ./solution
-  SolutionPackagePath: solution/sharepoint/solution/sharepoint-ru.sppkg  
+  SolutionPackagePath: sharepoint/solution/sharepoint-ru.sppkg  
 
 jobs:
   build:
