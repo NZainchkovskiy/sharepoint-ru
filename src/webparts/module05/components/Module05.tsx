@@ -2,7 +2,7 @@ import * as React from "react";
 import { IModule05Props } from "./IModule05Props";
 import { Formik } from "formik";
 import { FormTextField } from "./FormTextField";
-import { FormCheckbox } from "./FormCheckBox";
+import { FormCheckbox } from "./FormCheckbox";
 import { PrimaryButton } from "office-ui-fabric-react";
 import styled from "styled-components";
 import { motion, AnimatePresence } from "framer-motion";
