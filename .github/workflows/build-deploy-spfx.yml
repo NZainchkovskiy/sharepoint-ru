@@ -8,18 +8,15 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x]
     steps:
     - name: Checkout code
       uses: actions/checkout@v1
       
     - name: Run npm ci
       run: npm ci
-    
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.x
-    
     - name: Run npm i -g gulp
       run: npm i -g gulp
     
