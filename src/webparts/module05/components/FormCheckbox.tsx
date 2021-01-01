@@ -11,7 +11,7 @@ const Container = styled.div`
 export const FormCheckbox: React.FC<ICheckboxProps & { name: string }> = (
   props
 ) => {
-  const [field, meta] = useField(props);
+  const [field] = useField(props);
   return (
     <Container>
       <Checkbox {...field} {...props} />
