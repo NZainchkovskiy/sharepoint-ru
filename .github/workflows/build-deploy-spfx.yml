@@ -18,10 +18,6 @@ jobs:
       with:
         node-version: 10.x
     
-    - name: Run npm ci
-      run: npm ci
-      working-directory: ${{ env.SolutionFolder }}
-    
     - name: Run npm i -g gulp
       run: npm i -g gulp
       working-directory: ${{ env.SolutionFolder }}
