@@ -48,7 +48,7 @@ export default class Module03 extends React.Component<IModule03Props, {}> {
             <div className={styles.row}>
               <div className={styles.column}>
                 <span className={styles.title}>Welcome to SharePoint!</span>
-                <p className={styles.subTitle}>Hello CI/CD!</p>
+                <p className={styles.subTitle}>Hello GitHub Fixed!</p>
                 <p className={styles.description}>
                   {escape(this.props.description)}
                 </p>
