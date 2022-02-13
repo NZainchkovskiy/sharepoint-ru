@@ -44,7 +44,7 @@
     "@types/chai": "3.4.34",
     "@types/mocha": "2.2.38",
     "@types/styled-components": "^5.1.0",
-    "ajv": "~5.2.2",
+    "ajv": "~6.12.3",
     "concurrently": "^5.2.0",
     "gulp": "~3.9.1",
     "sp-rest-proxy": "^2.11.0",
